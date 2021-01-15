@@ -3,10 +3,14 @@ import pandas as pd
 
 
 def get_rating_matrix(filename, dtype=np.float32):
-    pass
+    df = pd.read_csv(filename)
+    return df.groupby(["source", "target"])["rating"].sum().unstack().fillna(0)
 
-
-
+# print(get_rating_matrix("./movie_rating.csv"))
 
 def get_frequent_matrix(filename, dtype=np.float32):
-    pass
+    df = pd.read_csv(filename)
+    df["rating"]=1
+    return df.groupby(["source", "target"])["rating"].sum().unstack().fillna(0)
+
+# print(get_frequent_matrix("./1000i.csv"))

@@ -82,4 +82,4 @@ def find_nearest_value(X, target_value):
 
 
 def get_n_largest_values(X, n):
-    return X[np.argsort(X[::-1][:n])]
+    return X[np.argsort(X[::-1])[:n]]
